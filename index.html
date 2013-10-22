@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<title>
+    Fred
+</title>
+<head>
+    <link href="fred.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <span class="centered">
+        <span class="left">
+            <textarea id="exe" class="trans form-control monospace" rows=20>% Enter George-style code here.
+% Press 'WTF?' for help.
+% Press 'Evaluate' to test.
+
+print a & (b v !c)
+print a => b & c
+
+a => b
+try impl # prints what impl does to above
+
+% The below code is modified from
+% www.student.cs.uwaterloo.ca/~se212/
+
+#check TP
+
+! (r => ! ((p v r) & (r v q))) <==>  r
+
+1) ! (r => ! ((p v r) & (r v q)))
+2) ! (r => ! ((r v p) & (r v q))) by comm
+3) ! (r => ! (r v (p & q))) by distr
+# (Fred's not as good as you at distr)
+4) !(! r v ! (r v (p & q))) by impl
+5) !(! r v ! r & ! (p & q)) by ?? 
+6) !!r by simp2
+7) r by neg
+</textarea>
+            <span class="bottom">
+                <button onClick="Fred.printHelp();" class="fright btn btn-default padded">WTF?</button>
+                <button onClick="Fred.evaluate();" class="fright btn btn-primary padded">Evaluate</button>
+            </span>
+        </span>
+        <pre id="output" class="trans right output scroll">
+        </pre>
+    </span>
+    <span class="credits">
+        By <a href="http://nettek.ca">Joshua Netterfield</a>
+    </span>
+</body>
+    <script type="text/javascript" src="underscore-min.js"></script>
+    <script type="text/javascript" src="fred.min.js"></script>
+</html>
